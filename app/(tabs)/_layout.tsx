@@ -8,24 +8,19 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarStyle: {},
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name='index'
         options={{
           title: 'Home',
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name='settings'
         options={{
-          title: 'Explore',
+          title: 'Settings',
         }}
       />
     </Tabs>
