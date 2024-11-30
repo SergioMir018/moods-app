@@ -8,7 +8,11 @@
       "themes": {
         "main": "Themes",
         "subtext": "Adjust the app color theme",
-        "header": "Select a color theme for the app:"
+        "header": "Select a color theme for the app:",
+        "colors": {
+          "blue": "Blue",
+          "green": "Green"
+        }
       }
     }
   }

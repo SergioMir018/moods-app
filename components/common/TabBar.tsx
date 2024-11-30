@@ -64,7 +64,7 @@ export default function TabBar({
             }}
           >
             {icons[route.name] &&
-              icons[route.name]({ color: isFocused ? Colors.light.tabIconSelected : 'black' })}
+              icons[route.name]({ color: isFocused ? Colors.blue.tint : 'black' })}
           </TouchableOpacity>
         );
       })}
