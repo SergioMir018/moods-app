@@ -1,5 +1,7 @@
 import { View, TouchableOpacity } from 'react-native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { Colors } from '@/constants/Colors';
+import icons from '@/constants/TabBarIcons';
 
 export default function TabBar({
   state,
@@ -61,11 +63,8 @@ export default function TabBar({
               justifyContent: 'center',
             }}
           >
-            {options.tabBarIcon?.({
-              focused: isFocused,
-              color: 'black',
-              size: 24,
-            })}
+            {icons[route.name] &&
+              icons[route.name]({ color: isFocused ? Colors.light.tabIconSelected : 'black' })}
           </TouchableOpacity>
         );
       })}
