@@ -7,7 +7,7 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView>
-      <Text>{t('home.calendar')}</Text>
+      <Text>{t('homeview.calendar')}</Text>
     </SafeAreaView>
   );
 }

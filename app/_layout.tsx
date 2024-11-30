@@ -12,7 +12,9 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    OutfitLight: require('../assets/fonts/Outfit-Light.ttf'),
+    Outfit: require('../assets/fonts/Outfit-Regular.ttf'),
+    OutfitSemibold: require('../assets/fonts/Outfit-SemiBold.ttf'),
   });
 
   useEffect(() => {
@@ -32,7 +34,10 @@ export default function RootLayout() {
           name='(tabs)'
           options={{ headerShown: false }}
         />
-        <Stack.Screen name='+not-found' />
+        <Stack.Screen
+          name='themes/theme-selector-view'
+          options={{ headerShown: false }}
+        />
       </Stack>
       <StatusBar style='auto' />
     </>

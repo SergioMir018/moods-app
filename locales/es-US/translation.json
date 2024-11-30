@@ -1,5 +1,15 @@
 {
-  "home": {
+  "homeview": {
     "calendar": "Calendario"
+  },
+  "settingsview": {
+    "settings": "Configuración",
+    "sections": {
+       "themes": {
+        "main": "Temas",
+        "subtext": "Ajusta el tema de color de la app",
+        "header": "Selecciona un tema de color para la aplicación:"
+      }
+    }
   }
 }
