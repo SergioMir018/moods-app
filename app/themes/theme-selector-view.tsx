@@ -1,17 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import OptionsHeaderText from '@/components/settings/OptionsHeaderText';
 import ViewHeader from '@/components/common/ViewHeader';
 import ColorOption from '@/components/settings/themes/ColorOption';
 import { Colors } from '@/constants/Colors';
+import ThemedSafeArea from '@/components/common/ThemedSafeArea';
 
 export default function ThemeSelectorView() {
   const { t } = useTranslation();
 
   return (
-    <SafeAreaView>
+    <ThemedSafeArea>
       <ViewHeader>{t('settingsview.sections.themes.main')}</ViewHeader>
       <OptionsHeaderText>
         {t('settingsview.sections.themes.header')}
@@ -30,7 +30,7 @@ export default function ThemeSelectorView() {
           );
         })}
       </View>
-    </SafeAreaView>
+    </ThemedSafeArea>
   );
 }
 

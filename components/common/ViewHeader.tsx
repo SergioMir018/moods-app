@@ -23,7 +23,7 @@ export default function ViewHeader({ children }: ViewHeaderProps) {
         <Feather
           name='arrow-left'
           size={28}
-          color='black'
+          color='white'
         />
       </TouchableOpacity>
       <Text style={styles.text}>{children}</Text>
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     alignItems: 'center',
     paddingHorizontal: 10,
+    borderColor: 'white'
   },
   text: {
     position: 'absolute',
@@ -48,5 +49,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '100%',
     textAlign: 'center',
+    color: 'white'
   },
 });

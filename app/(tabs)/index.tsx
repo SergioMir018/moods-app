@@ -1,16 +1,17 @@
 import { StyleSheet, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
+import ThemedSafeArea from '@/components/common/ThemedSafeArea';
 
 export default function HomeScreen() {
   const { t } = useTranslation();
 
   return (
-    <SafeAreaView>
+    <ThemedSafeArea>
       <Text>{t('homeview.calendar')}</Text>
-    </SafeAreaView>
+    </ThemedSafeArea>
   );
 }
 
 const styles = StyleSheet.create({
+  
 });

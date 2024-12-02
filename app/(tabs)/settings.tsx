@@ -1,18 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import SectionHeaderText from '@/components/common/SectionHeaderText';
 import { useTranslation } from 'react-i18next';
 import LinkedSection from '@/components/settings/LinkedSection';
 import Octicons from '@expo/vector-icons/Octicons';
 import { useTheme } from '@/components/common/ThemeContext';
+import ThemedSafeArea from '@/components/common/ThemedSafeArea';
 
 export default function settings() {
   const { t } = useTranslation();
-  const { colors } = useTheme();
-
   return (
-    <SafeAreaView style={{backgroundColor: colors.background, flex: 1}}>
+    <ThemedSafeArea>
       <SectionHeaderText>{t('settingsview.settings')}</SectionHeaderText>
       <LinkedSection to='/themes/theme-selector-view'>
         <View style={styles.container}>
@@ -31,7 +29,7 @@ export default function settings() {
           </View>
         </View>
       </LinkedSection>
-    </SafeAreaView>
+    </ThemedSafeArea>
   );
 }
 
