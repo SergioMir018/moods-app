@@ -21,5 +21,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     fontFamily: 'OutfitSemibold',
+    color: 'white'
   },
 });

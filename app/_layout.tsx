@@ -6,6 +6,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import '@/locales/i18';
+import { ThemeProvider } from '@/components/common/ThemeContext';
+import AppContainer from '@/components/common/AppContainer';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -18,9 +20,12 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    async function hideSplash() {
+      if (loaded) {
+        await SplashScreen.hideAsync();
+      }
     }
+    hideSplash();
   }, [loaded]);
 
   if (!loaded) {
@@ -28,18 +33,20 @@ export default function RootLayout() {
   }
 
   return (
-    <>
-      <Stack>
-        <Stack.Screen
-          name='(tabs)'
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='themes/theme-selector-view'
-          options={{ headerShown: false }}
-        />
-      </Stack>
-      <StatusBar style='auto' />
-    </>
+    <ThemeProvider>
+      <AppContainer>
+        <Stack>
+          <Stack.Screen
+            name='(tabs)'
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='themes/theme-selector-view'
+            options={{ headerShown: false }}
+          />
+        </Stack>
+        <StatusBar style='auto' />
+      </AppContainer>
+    </ThemeProvider>
   );
 }

@@ -5,19 +5,21 @@ import SectionHeaderText from '@/components/common/SectionHeaderText';
 import { useTranslation } from 'react-i18next';
 import LinkedSection from '@/components/settings/LinkedSection';
 import Octicons from '@expo/vector-icons/Octicons';
+import { useTheme } from '@/components/common/ThemeContext';
 
 export default function settings() {
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: colors.background, flex: 1}}>
       <SectionHeaderText>{t('settingsview.settings')}</SectionHeaderText>
       <LinkedSection to='/themes/theme-selector-view'>
         <View style={styles.container}>
           <Octicons
             name='paintbrush'
             size={24}
-            color='black'
+            color='white'
           />
           <View>
             <Text style={styles.sectionMainText}>
@@ -42,9 +44,11 @@ const styles = StyleSheet.create({
   sectionMainText: {
     fontSize: 24,
     fontFamily: 'Outfit',
+    color: 'white'
   },
   sectionSubText: {
     fontSize: 15,
     fontFamily: 'OutfitLight',
+    color: 'white'
   },
 });

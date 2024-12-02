@@ -2,17 +2,20 @@ import { View, TouchableOpacity } from 'react-native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Colors } from '@/constants/Colors';
 import icons from '@/constants/TabBarIcons';
+import { useTheme } from '@/components/common/ThemeContext';
 
 export default function TabBar({
   state,
   descriptors,
   navigation,
 }: BottomTabBarProps) {
+  const { colors } = useTheme();
+
   return (
     <View
       style={{
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: colors.foreground,
         borderCurve: 'continuous',
         borderRadius: 25,
         bottom: 0,
@@ -64,7 +67,9 @@ export default function TabBar({
             }}
           >
             {icons[route.name] &&
-              icons[route.name]({ color: isFocused ? Colors.blue.tint : 'black' })}
+              icons[route.name]({
+                color: isFocused ? colors.tint : 'grey',
+              })}
           </TouchableOpacity>
         );
       })}

@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { Colors } from '@/constants/Colors';
+import { useTheme } from '@/components/common/ThemeContext';
 
 interface ColorOptionProps {
   children: React.ReactNode;
@@ -8,16 +9,16 @@ interface ColorOptionProps {
 }
 
 export default function ColorOption({ children, color }: ColorOptionProps) {
+  const { setTheme } = useTheme();
+
   return (
-    <View style={styles.container}>
-      <View
-        style={[
-          styles.color,
-          { backgroundColor: Colors[color].tint },
-        ]}
-      />
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => setTheme(color)}
+    >
+      <View style={[styles.color, { backgroundColor: Colors[color].tint }]} />
       <Text style={styles.text}>{children}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10
+    gap: 10,
   },
   color: {
     height: 30,
@@ -35,6 +36,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    fontFamily: 'Outfit'
-  }
+    fontFamily: 'Outfit',
+  },
 });
