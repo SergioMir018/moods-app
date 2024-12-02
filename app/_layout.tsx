@@ -1,11 +1,12 @@
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
+import { setStatusBarBackgroundColor, StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import 'react-native-reanimated';
 import '@/locales/i18';
-import { ThemeProvider } from '@/components/common/ThemeContext';
+import { ThemeProvider, useTheme } from '@/components/common/ThemeContext';
+import * as SystemUI from 'expo-system-ui';
+import { Stack } from 'expo-router';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -16,12 +17,27 @@ export default function RootLayout() {
     OutfitSemibold: require('../assets/fonts/Outfit-SemiBold.ttf'),
   });
 
+  return (
+    <ThemeProvider>
+      <RootStack loaded={loaded} />
+      <StatusBar style='light' />
+    </ThemeProvider>
+  );
+}
+
+function RootStack({ loaded }: { loaded: boolean }) {
+  const { colors } = useTheme();
+
   useEffect(() => {
     async function hideSplash() {
+      SystemUI.setBackgroundColorAsync(colors.background);
+      setStatusBarBackgroundColor(colors.background);
+
       if (loaded) {
         await SplashScreen.hideAsync();
       }
     }
+
     hideSplash();
   }, [loaded]);
 
@@ -30,19 +46,21 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider>
-      <Stack
-      >
-        <Stack.Screen
-          name='(tabs)'
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='themes/theme-selector-view'
-          options={{ headerShown: false }}
-        />
-      </Stack>
-      <StatusBar style='light' />
-    </ThemeProvider>
+    <Stack
+      screenOptions={{
+        contentStyle: {
+          backgroundColor: colors.background,
+        },
+      }}
+    >
+      <Stack.Screen
+        name='(tabs)'
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='themes/theme-selector-view'
+        options={{ headerShown: false }}
+      />
+    </Stack>
   );
 }
