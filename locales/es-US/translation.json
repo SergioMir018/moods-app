@@ -11,7 +11,11 @@
         "header": "Selecciona un tema de color para la aplicación:",
         "colors": {
           "blue": "Azul",
-          "green": "Verde"
+          "green": "Verde",
+          "yellow": "Amarillo",
+          "orange": "Naranja",
+          "red": "Rojo",
+          "purple": "Morado"
         }
       }
     }

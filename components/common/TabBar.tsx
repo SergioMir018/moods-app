@@ -68,7 +68,7 @@ export default function TabBar({
           >
             {icons[route.name] &&
               icons[route.name]({
-                color: isFocused ? colors.tint : 'grey',
+                color: isFocused ? colors.highlight : 'grey',
               })}
           </TouchableOpacity>
         );

@@ -22,7 +22,7 @@ export default function ColorOption({ children, color }: ColorOptionProps) {
       onPress={() => setTheme(color)}
     >
       <View style={styles.colorInfoContainer}>
-        <View style={[styles.color, { backgroundColor: Colors[color].tint }]} />
+        <View style={[styles.color, { backgroundColor: Colors[color].highlight }]} />
         <Text style={styles.text}>{children}</Text>
       </View>
       {isSelectedTheme() && (
