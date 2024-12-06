@@ -62,6 +62,10 @@ function RootStack({ loaded }: { loaded: boolean }) {
 		  name='themes/theme-selector-view'
 		  options={{ headerShown: false }}
 		/>
+		<Stack.Screen
+		  name='newEntry/[moodType]'
+		  options={{ headerShown: false }}
+		/>
 	  </Stack>
 	  <StatusBar style='light' />
 	</>

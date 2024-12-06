@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ThemedSafeArea from '@/components/common/ThemedSafeArea';
 import Container from '@/components/common/Container';
 import faceIcons from '@/constants/FaceIcons';
+import { Link } from 'expo-router';
 
 export default function HomeScreen() {
   const { t } = useTranslation();
@@ -12,16 +13,23 @@ export default function HomeScreen() {
       <Container customStyles={styles.newEntrieContainer}>
         <Text style={styles.text}>{t('homeview.newEntrie')}</Text>
         <View style={styles.faceContainer}>
-          {faceIcons.map(({ name, icon }) => {
+          {faceIcons.map(({ name, icon }, index) => {
             return (
-              <TouchableOpacity 
+              <Link
+                href={{
+                  pathname: '/newEntry/[moodType]',
+                  params: { moodType: index },
+                }}
                 key={name}
-                touchSoundDisabled
-                activeOpacity={1}
-                style={[styles.face]}
+                asChild
               >
-                {icon}
-              </TouchableOpacity>
+                <TouchableOpacity
+                  touchSoundDisabled
+                  activeOpacity={1}
+                >
+                  {icon()}
+                </TouchableOpacity>
+              </Link>
             );
           })}
         </View>
@@ -34,19 +42,16 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     textAlign: 'center',
-    fontFamily: "OutfitSemibold",
+    fontFamily: 'OutfitSemibold',
     fontSize: 20,
   },
   newEntrieContainer: {
-    marginTop: 10
+    marginTop: 10,
   },
   faceContainer: {
-    flexDirection: "row",
-    alignSelf: "center",
+    flexDirection: 'row',
+    alignSelf: 'center',
     marginTop: 10,
     gap: 10,
   },
-  face: {
-      borderRadius: 50,
-  }
 });

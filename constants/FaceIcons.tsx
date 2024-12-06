@@ -1,62 +1,61 @@
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
-interface IconProps {
-  color: string;
-  size?: number;
+interface FaceIcon {
+  name: string;
+  icon: (size?: number) => JSX.Element;
 }
 
-const faceIcons: Array<{ name: string; icon: React.ReactNode }> = [
+const faceIcons: Array<FaceIcon> = [
   {
     name: 'angry',
-    icon: (
+    icon: (size = 50) => (
       <FontAwesome6
         name='face-angry'
-        size={50}
-        color= '#e34242'
-
+        size={size}
+        color='#e34242'
       />
     ),
   },
   {
     name: 'sad',
-    icon: (
+    icon: (size = 50) => (
       <FontAwesome6
         name='face-frown'
-        size={50}
+        size={size}
         color='#425de3'
       />
     ),
   },
   {
     name: 'meh',
-    icon: (
+    icon: (size = 50) => (
       <FontAwesome6
         name='face-meh'
-        size={50}
+        size={size}
         color='#e3b342'
       />
     ),
   },
   {
     name: 'smile',
-    icon: (
+    icon: (size = 50) => (
       <FontAwesome6
         name='face-smile'
-        size={50}
+        size={size}
         color='#c5ea2e'
       />
     ),
   },
   {
     name: 'grin',
-    icon: (
+    icon: (size = 50) => (
       <FontAwesome6
         name='face-laugh-squint'
-        size={50}
+        size={size}
         color='#04fa00'
       />
     ),
-  }
+  },
 ];
 
 export default faceIcons;
