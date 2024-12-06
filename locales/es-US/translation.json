@@ -1,6 +1,7 @@
 {
   "homeview": {
-    "calendar": "Calendario"
+    "calendar": "Calendario",
+    "newEntrie": "¿Cómo estás hoy?"
   },
   "settingsview": {
     "settings": "Configuración",
