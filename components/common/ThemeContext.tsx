@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Colors } from '@/constants/Colors';
+import { Theme } from '@/constants/Colors';
 
-type ThemeName = keyof typeof Colors;
+type ThemeName = keyof typeof Theme;
 
 interface ThemeContextProps {
   theme: ThemeName;
-  colors: (typeof Colors)[ThemeName];
+  colors: (typeof Theme)[ThemeName];
   setTheme: (theme: ThemeName) => void;
 }
 
@@ -18,7 +18,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const value = {
     theme,
-    colors: Colors[theme],
+    colors: Theme[theme],
     setTheme,
   };
 

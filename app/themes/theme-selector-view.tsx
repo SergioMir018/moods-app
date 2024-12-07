@@ -1,10 +1,10 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import OptionsHeaderText from '@/components/settings/OptionsHeaderText';
 import ViewHeader from '@/components/common/ViewHeader';
 import ColorOption from '@/components/settings/themes/ColorOption';
-import { Colors } from '@/constants/Colors';
+import { Theme } from '@/constants/Colors';
 import ThemedSafeArea from '@/components/common/ThemedSafeArea';
 
 export default function ThemeSelectorView() {
@@ -12,20 +12,24 @@ export default function ThemeSelectorView() {
 
   return (
     <ThemedSafeArea>
-      <ViewHeader>{t('settingsview.sections.themes.main')}</ViewHeader>
+      <ViewHeader>
+        <Text style={styles.text}>
+          {t('settingsView.sections.themes.main')}
+        </Text>
+      </ViewHeader>
       <OptionsHeaderText>
-        {t('settingsview.sections.themes.header')}
+        {t('settingsView.sections.themes.header')}
       </OptionsHeaderText>
       <View style={styles.colorOptionContainer}>
-        {Object.keys(Colors).map((color) => {
-          const typedColor = color as keyof typeof Colors;
+        {Object.keys(Theme).map((color) => {
+          const typedColor = color as keyof typeof Theme;
 
           return (
             <ColorOption
               key={color}
               color={typedColor}
             >
-              {t(`settingsview.sections.themes.colors.${color}`)}
+              {t(`settingsView.sections.themes.colors.${color}`)}
             </ColorOption>
           );
         })}
@@ -37,6 +41,15 @@ export default function ThemeSelectorView() {
 const styles = StyleSheet.create({
   colorOptionContainer: {
     marginTop: 10,
-    gap: 15
-  }
+    gap: 15,
+  },
+  text: {
+    position: 'absolute',
+    fontSize: 20,
+    fontFamily: 'Outfit',
+    alignSelf: 'center',
+    width: '100%',
+    textAlign: 'center',
+    color: 'white',
+  },
 });

@@ -12,7 +12,7 @@ export default function ViewHeader({ children }: ViewHeaderProps) {
 
   const handleBack = () => {
     router.back();
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -26,7 +26,7 @@ export default function ViewHeader({ children }: ViewHeaderProps) {
           color='white'
         />
       </TouchableOpacity>
-      <Text style={styles.text}>{children}</Text>
+      {children}
     </View>
   );
 }
@@ -35,20 +35,11 @@ const styles = StyleSheet.create({
   container: {
     borderBottomWidth: 1 / 4,
     flexDirection: 'row',
-    height: 40,
+    paddingVertical: 5,
     marginBottom: 10,
     position: 'relative',
     alignItems: 'center',
     paddingHorizontal: 10,
-    borderColor: 'white'
-  },
-  text: {
-    position: 'absolute',
-    fontSize: 20,
-    fontFamily: 'Outfit',
-    alignSelf: 'center',
-    width: '100%',
-    textAlign: 'center',
-    color: 'white'
+    borderColor: 'white',
   },
 });

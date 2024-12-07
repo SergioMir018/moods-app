@@ -5,7 +5,9 @@ interface SectionHeaderTextProps {
   children: React.ReactNode;
 }
 
-export default function SectionHeaderText({ children }: SectionHeaderTextProps) {
+export default function SectionHeaderText({
+  children,
+}: SectionHeaderTextProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{children}</Text>
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     fontFamily: 'OutfitSemibold',
-    color: 'white'
+    color: 'white',
+    textAlign: 'center',
   },
 });

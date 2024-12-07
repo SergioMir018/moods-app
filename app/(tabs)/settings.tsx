@@ -11,7 +11,7 @@ export default function settings() {
   const { t } = useTranslation();
   return (
     <ThemedSafeArea>
-      <SectionHeaderText>{t('settingsview.settings')}</SectionHeaderText>
+      <SectionHeaderText>{t('settingsView.settings')}</SectionHeaderText>
       <LinkedSection to='/themes/theme-selector-view'>
         <View style={styles.container}>
           <Octicons
@@ -21,10 +21,10 @@ export default function settings() {
           />
           <View>
             <Text style={styles.sectionMainText}>
-              {t('settingsview.sections.themes.main')}
+              {t('settingsView.sections.themes.main')}
             </Text>
             <Text style={styles.sectionSubText}>
-              {t('settingsview.sections.themes.subtext')}
+              {t('settingsView.sections.themes.subtext')}
             </Text>
           </View>
         </View>

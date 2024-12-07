@@ -11,7 +11,7 @@ export default function HomeScreen() {
   return (
     <ThemedSafeArea>
       <Container customStyles={styles.newEntrieContainer}>
-        <Text style={styles.text}>{t('homeview.newEntrie')}</Text>
+        <Text style={styles.text}>{t('homeView.newEntry')}</Text>
         <View style={styles.faceContainer}>
           {faceIcons.map(({ name, icon }, index) => {
             return (

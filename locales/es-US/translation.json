@@ -1,9 +1,9 @@
 {
-  "homeview": {
+  "homeView": {
     "calendar": "Calendario",
-    "newEntrie": "¿Cómo estás hoy?"
+    "newEntry": "¿Cómo estás hoy?"
   },
-  "settingsview": {
+  "settingsView": {
     "settings": "Configuración",
     "sections": {
        "themes": {
@@ -20,5 +20,11 @@
         }
       }
     }
+  },
+  "common": {
+    "saveButton": "Guardar"
+  },
+  "newEntryView": {
+    "howAreYour": "¿Cómo estás?"
   }
 }

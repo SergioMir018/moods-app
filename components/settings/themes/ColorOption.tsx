@@ -1,12 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { Colors } from '@/constants/Colors';
+import { Theme } from '@/constants/Colors';
 import { useTheme } from '@/components/common/ThemeContext';
 import Feather from '@expo/vector-icons/Feather';
 
 interface ColorOptionProps {
   children: React.ReactNode;
-  color: keyof typeof Colors;
+  color: keyof typeof Theme;
 }
 
 export default function ColorOption({ children, color }: ColorOptionProps) {
@@ -14,7 +14,7 @@ export default function ColorOption({ children, color }: ColorOptionProps) {
 
   const isSelectedTheme = () => {
     return theme === color;
-  }
+  };
 
   return (
     <TouchableOpacity
@@ -22,7 +22,9 @@ export default function ColorOption({ children, color }: ColorOptionProps) {
       onPress={() => setTheme(color)}
     >
       <View style={styles.colorInfoContainer}>
-        <View style={[styles.color, { backgroundColor: Colors[color].highlight }]} />
+        <View
+          style={[styles.color, { backgroundColor: Theme[color].highlight }]}
+        />
         <Text style={styles.text}>{children}</Text>
       </View>
       {isSelectedTheme() && (
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   colorInfoContainer: {
     flexDirection: 'row',
@@ -56,6 +58,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     fontFamily: 'Outfit',
-    color: 'white'
+    color: 'white',
   },
 });

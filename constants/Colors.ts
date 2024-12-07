@@ -4,6 +4,10 @@
  */
 
 export const Colors = {
+  green: '#87D787',
+};
+
+export const Theme = {
   blue: {
     background: '#181B23',
     foreground: '#2D3038',
